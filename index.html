@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/nav.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="js/script.js" defer></script>
+        <link href="https://fonts.googleapis.com/css2?family=Jacquard+12&family=Macondo+Swash+Caps&family=Orbitron:wght@500&family=Saira:ital,wght@0,100..900;1,100..900&family=Silkscreen:wght@400;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+        <title>A.Rene's Website</title>
+    </head>
+    <body class="ready">
+        <style>
+
+        </style>
+        <div class="first-cover"></div>
+        <div class="site-header" class="" style="height: 77px">
+            <div id="site-header-top-level">
+                <a id="site-logo" href="/">A.Rene</a>
+                <a id="navtoggle" class="site-header-button-menu" href="#">
+                    <svg width="25px" height="17px" viewBox="0 0 25 17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <rect id="Rectangle" fill="#e5d2bd" x="0" y="0" width="25" height="3" rx="1.5"></rect>
+                            <rect id="Rectangle-Copy" fill="#e5d2bd" x="0" y="7" width="25" height="3" rx="1.5"></rect>
+                            <rect id="Rectangle-Copy-2" fill="#e5d2bd" x="0" y="14" width="25" height="3" rx="1.5"></rect>
+                        </g>
+                    </svg>
+                </a>
+        </div>
+            <div id="site-nav" class="">
+                <nav id="site menu" class="">
+                    <a href="/">Home</a>
+                    <a href="/gallery">Gallery</a>
+                    <a href="/game-devlopment">Game Devlopment</a>
+                    <a href="">Shop</a>
+                    <a href="/about">About</a>
+                </nav>
+                <i class="hover-effect" style="width: 0; left: 0;"></i>
+            </div>
+        </div>
+        <div id="rainy-video" class="rainyGif">
+            <img src="https://i.imgur.com/FB0zyuA.gif" class="background-img" />        <!-- <video autoplay muted loop poster=" ">
+                <source src="https://www.instagram.com/reel/DHEoVtQRL8J/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" type="video/mp4">
+            </video> -->
+        </div>
+        <div id="newsletter-content">
+            <button class='popupButton' id="newsletter-button">Subscribe to the newletter</button>
+            <div id="signup-popup" class="popup">
+                <span class="close" id="close-button">&times;</span>
+                <h3>Stay up-to-date!</h3>
+                <form class="popupForm" id="form">
+                    <input type="text" id="name" placeholder="Sell your soul here: " required>
+                    <input type="email" id="email" placeholder="Mortal Email: " required>
+                    <button type="sumbit">Subcribe</button>
+                </form>
+            </div>
+        </div>
+        <div id="temp-gallery" class="gallery">
+            <h3>Gallery</h3>
+            <div class="galleryItems">
+                <div class="gallery-item">
+                    <img class="gallery-image" src="https://i.imgur.com/2OlOBxll.jpg" title="stories-to-tell">
+                    <button class="likeButton" onclick="handleLike(0)">Like</button>
+                    <div class="likeCount" id="likeCount-0">Likes: 0</div>
+                </div>
+                <div class="gallery-item">
+                    <img class="gallery-image" src="https://i.imgur.com/npg1FsWl.jpg" title="lollie">
+                    <button class="likeButton" onclick="handleLike(1)">Like</button>
+                    <div class="likeCount" id="likeCount-1">Likes: 0</div>
+                </div>
+                <div class="gallery-item">
+                    <img class="gallery-image" src="https://i.imgur.com/A3pUb3Tl.jpg" title="contemplation">
+                    <button class="likeButton" onclick="handleLike(2)">Like</button>
+                    <div class="likeCount" id="likeCount-2">Likes: 0</div>
+                </div>
+                <div class="gallery-item">
+                    <img class="gallery-image" src="https://i.imgur.com/aDavgXTl.jpg" title="respect-me">
+                    <button class="likeButton" onclick="handleLike(3)">Like</button>
+                    <div class="likeCount" id="likeCount-3">Likes: 0</div>
+                </div>
+                <div class="gallery-item">
+                    <img class="gallery-image" src="https://i.imgur.com/ABL9W3gl.jpg" title="roses" >
+                    <button class="likeButton" onclick="handleLike(4)">Like</button>
+                    <div class="likeCount" id="likeCount-4">Likes: 0</div>
+                </div>
+                <div class="gallery-item">
+                    <img class="gallery-image" src="https://i.imgur.com/WqGEMbkl.jpg" title="neon">
+                    <button class="likeButton" onclick="handleLike(5)">Like</button>
+                    <div class="likeCount" id="likeCount-5">Likes: 0</div>
+                </div>
+                <div class="gallery-item">
+                    <img class="gallery-image" src="https://i.imgur.com/AZG8lzEl.jpg" title="women's day">
+                    <button class="likeButton" onclick="handleLike(6)">Like</button>
+                    <div class="likeCount" id="likeCount-6">Likes: 0</div>
+                </div>
+                <div class="gallery-item">
+                    <img class="gallery-image" src="https://i.imgur.com/bZZE8GAl.jpg" title="cupcake">
+                    <button class="likeButton" onclick="handleLike(7)">Like</button>
+                    <div class="likeCount" id="likeCount-7">Likes: 0</div>
+                </div>
+            </div>
+            <!-- <button class="like" id="likeButton">Like</button>
+            <div class="counter" id="likeCount">Like: 0</div> -->
+            <button class="arrow arrow-left" id="prevButton">&#10094;</button>
+            <button class="arrow arrow-right" id="nextButton">&#10095;</button>
+        </div>
+        
+        <script>
+            // yes, this is in jquery that is just what i found works better for the nav bar. This would be so long otherwise.
+            $("#navtoggle").click(function(event) { //onclick event
+                event.preventDefault();
+                if ($('#site-header').is("menu-open")) {
+                    $('#site-header').removeClass("menu-open");
+                    $("#site-header").css("height", "77px");
+                } else {
+                    $('#site-header').addClass("menu-open");
+                    $("#site-header").css("height", "460px");
+                }
+            });
+            var nav = [91, 102, 196, 85, 93]; //for the spacing when the modual slides
+            var offset = [52, 144, 291, 428.5, 514];
+
+            window.onload = function() {
+                $(".hover-effect").width(nav[$("#site-nav a.active").index()]).css("left", offset[$("#site-nav a.active").index()]); //function for the numbers above
+                setTimeout(function() {
+                    $("body").addClass("ready");
+                }, 100); //supposed to be for timeing out the slider but idk if it works
+                $("#site-nav").hover(
+                    function() {
+                    $("#site-nav a").hover(
+                        function() {
+                        $(".hover-effect").width(nav[$("#site-nav a").index(this)]).css("left", offset[$("#site-nav a").index(this)]);
+                        $("#site-nav").addClass("normal");
+                        });
+                    },
+                    function(e) {
+                    $(".hover-effect").width(nav[$("#site-nav a.active").index()]).css("left", offset[$("#site-nav a.active").index()]);
+                    $("#site-nav").removeClass("normal");
+                    });
+            };
+        </script>
+    </body>
+</html>

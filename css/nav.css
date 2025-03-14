@@ -1,0 +1,276 @@
+html{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Saira", sans-serif;
+    background-color: #e5d2bd;
+/* .first-cover{
+    background: url("rainy-day.gif") no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+} */
+#site-header{
+    left:0;
+    box-sizing: inherit;
+}
+#site-nav {
+    font-weight: 600;
+    font-size: 18px;
+    nav{
+        z-index: 10;
+        position: relative;
+    }
+    a {
+        transition: width 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+    } a:hover, a.active {
+        color: #082b27;
+    } a {
+        color: #e5d2bd;
+        text-decoration: none;
+        display: block;
+        padding: 8px 20px;
+    }
+}
+
+#site-logo {
+    position: absolute;
+    background-size: 190px 104px;
+    width: 190px;
+    text-indent: 30px;
+    text-decoration: none;
+    font-size: 40px;
+    font-family: "UnifrakturMaguntia", cursive;
+    color: #082b27;
+    overflow: hidden;
+    z-index: 99;
+    margin: 20px 0 0;
+
+}
+ .site-header-button-menu{
+    display: none;
+ }
+/* .hover-effect{
+    position: relative;
+    background: #e5d2bd;
+    
+    color:#082b27
+} */
+
+@media (min-width: 768px) {
+    #site-header{
+        position: absolute;
+        z-index: 100;
+        width: 100%;
+        max-width: 1200px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #site-logo{
+        height: 54px;
+        top: 24px;
+        left: 37px;
+    }
+    #site-nav {
+        background: #082b27;
+        border-radius: 28px;
+        padding: 6px;
+        float: left;
+        position: absolute;
+        z-index: 10;
+        top: 24px;
+        right: 24px;
+    }
+    .hover-effect {
+        background-color: #e5d2bd;
+        display: block;
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        border-radius: 28px;
+        bottom: 6px;
+        width: 0;
+        pointer-events: none;
+        transform: translateX(-50%);
+        mix-blend-mode: difference;
+        will-change: width,left;
+        .ready &{
+            transition: width 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000),left 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+    }@supports (mix-blend-mode: difference) {
+        .hover-effect{
+            z-index: 12;
+        } nav{
+            z-index: 1;
+        } #site-nav a:hover, #site-nav a.active{
+            color: #e5d2bd;
+            
+            /*
+            display: block;
+            border-radius: 28px;
+            background-color: #e5d2bd;
+            transform: translateX(-10%);
+            mix-blend-mode: difference;
+            will-change: width,left;
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            bottom: 6px;
+            width: 0;
+            pointer-events: none; */
+        }
+    } #site-nav a{
+        float: left;
+    } .site-header-top-level{
+        .site-header-button-menu{
+            display:none;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    #site-header{
+        position: fixed;
+        background-color: #082b27;
+        top: 8px;
+        z-index: 1002;
+        top: 8px;
+        border-radius: 28px;
+        width: 100%;
+        width: calc(100% - 12px);
+        margin-left: 6px;
+        height: 77px;
+        overflow: hidden;
+        will-change: height;
+        transition: height .75s ease;
+    }
+    .site-header-top-level{
+        position: relative;
+        z-index: 10;
+        display: block;
+        background-color: #78614d;
+        .site-logo{
+            text-align: center
+        }
+    }
+    #sit-nav {
+        padding: 26px;
+        position: relative;
+        opacity: 0;
+        transition: opacity .75s ease;
+        will-change: opacity;
+        z-index: 0;
+        .menu-open &{
+            opacity: 1;
+        }&:before{
+            content: " ";
+            display: none;
+            position: absolute;
+            top: 0px;
+            left: 20px;
+            right: 20px;
+            background: #756c4f;
+            height: 3px;
+            border-radius: 6px;
+        } #nav-menu a{
+            display: none;
+            width: 100%;
+            text-align: center;
+            padding: 16px;
+            & .active{
+                margin: 10px 0;
+                background: #082b27;
+                color: #082b27;
+                border-radius: 30px;
+            } &:last-of-type.active {
+                margin-bottom: 0;
+            } &:first-of-type.active {
+                margin-top: 0;
+            }
+
+        }
+
+    }
+    .site-header-top-level {
+        width: 100%;
+        width: calc(100% - 40px);
+        margin-left: 20px;
+        position: relative;
+        padding: 14px 0;
+        display: block;
+        justify-content: space-between;
+    }
+    .site-header-button-menu{
+        display: relative;
+        width: 49px;
+        height: 49px;
+        color: #78614d;
+        cursor: pointer;
+        z-index: 0;
+        svg{
+            margin: 16px 12.5px;
+        }
+
+    }
+    #site-logo{
+        color: #e5d2bd;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+        height: 100%;
+        z-index: 10;
+    }
+
+}
+
+
+/* Fonts:
+.macondo-swash-caps-regular {
+  font-family: "Macondo Swash Caps", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.jacquard-12-regular {
+  font-family: "Jacquard 12", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.unifrakturmaguntia-regular {
+  font-family: "UnifrakturMaguntia", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.silkscreen-regular {
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.silkscreen-bold {
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.orbitron-<uniquifier> {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+wieght: use a value from 100-900
+.saira-<uniquifier> {
+  font-family: "Saira", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+*/
+
+
