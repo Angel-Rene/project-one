@@ -4,12 +4,7 @@ html{
 
 body {
     font-family: "Saira", sans-serif;
-    background-color: #e5d2bd;
-/* .first-cover{
-    background: url("rainy-day.gif") no-repeat center center fixed;
-    background-size: cover;
-    height: 100%;
-} */
+    background-color: #282232;
 #site-header{
     left:0;
     box-sizing: inherit;
@@ -24,7 +19,7 @@ body {
     a {
         transition: width 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
     } a:hover, a.active {
-        color: #082b27;
+        color: #e5d2bd;
     } a {
         color: #e5d2bd;
         text-decoration: none;
@@ -41,7 +36,7 @@ body {
     text-decoration: none;
     font-size: 40px;
     font-family: "UnifrakturMaguntia", cursive;
-    color: #082b27;
+    color: #432467;
     overflow: hidden;
     z-index: 99;
     margin: 20px 0 0;
@@ -72,7 +67,7 @@ body {
         left: 37px;
     }
     #site-nav {
-        background: #082b27;
+        background: #432467;
         border-radius: 28px;
         padding: 6px;
         float: left;
@@ -82,7 +77,7 @@ body {
         right: 24px;
     }
     .hover-effect {
-        background-color: #e5d2bd;
+        background-color: red;
         display: block;
         position: absolute;
         top: 6px;
@@ -92,12 +87,12 @@ body {
         width: 0;
         pointer-events: none;
         transform: translateX(-50%);
-        mix-blend-mode: difference;
+        mix-blend-mode: darker-color;
         will-change: width,left;
         .ready &{
             transition: width 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000),left 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000);
         }
-    }@supports (mix-blend-mode: difference) {
+    }@supports (mix-blend-mode: darker-color) {
         .hover-effect{
             z-index: 12;
         } nav{
@@ -131,7 +126,7 @@ body {
 @media (max-width: 767px) {
     #site-header{
         position: fixed;
-        background-color: #082b27;
+        background-color: #432467;
         top: 8px;
         z-index: 1002;
         top: 8px;
@@ -147,8 +142,7 @@ body {
     .site-header-top-level{
         position: relative;
         z-index: 10;
-        display: block;
-        background-color: #78614d;
+        background-color: #432467;
         .site-logo{
             text-align: center
         }
@@ -159,28 +153,27 @@ body {
         opacity: 0;
         transition: opacity .75s ease;
         will-change: opacity;
-        z-index: 0;
         .menu-open &{
             opacity: 1;
         }&:before{
             content: " ";
-            display: none;
+            display: block;
             position: absolute;
             top: 0px;
             left: 20px;
             right: 20px;
-            background: #756c4f;
+            background: #432467;
             height: 3px;
             border-radius: 6px;
         } #nav-menu a{
-            display: none;
+            display: block;
             width: 100%;
             text-align: center;
             padding: 16px;
             & .active{
                 margin: 10px 0;
-                background: #082b27;
-                color: #082b27;
+                background: #432467;
+                color: #432467;
                 border-radius: 30px;
             } &:last-of-type.active {
                 margin-bottom: 0;
@@ -197,23 +190,27 @@ body {
         margin-left: 20px;
         position: relative;
         padding: 14px 0;
-        display: block;
+        display: flex;
         justify-content: space-between;
     }
     .site-header-button-menu{
-        display: relative;
+        display: block;
         width: 49px;
         height: 49px;
-        color: #78614d;
+        background-color: #432467;
+        color: #6dc896;
         cursor: pointer;
-        z-index: 0;
+        z-index: 10;
+        #site-menu{
+            display: hidden;
+        }
         svg{
             margin: 16px 12.5px;
         }
 
     }
     #site-logo{
-        color: #e5d2bd;
+        color: #432467;
         left: 50%;
         transform: translateX(-50%);
         top: 0;
@@ -221,7 +218,7 @@ body {
         z-index: 10;
     }
 
-}
+}}
 
 
 /* Fonts:
@@ -272,5 +269,3 @@ wieght: use a value from 100-900
     "wdth" 100;
 }
 */
-
-
