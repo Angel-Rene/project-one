@@ -27,7 +27,7 @@
 
             }
         </style>
-        <div class="process-shape-wrap">
+        <!-- <div class="process-shape-wrap">
             <div data-is-ix2-target="1" class="process-shape" data-w-id="d252a8fa-00d3-c1e7-1916-788abffa77a9" data-animation-type="lottie" data-src="https://cdn.prod.website-files.com/5e4aa0b13e4de59727d00bda/5e5f7041a3a9fc2f4a130a96_SVQProcess.json" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="1.05" data-duration="1.05">
                 <defs>
                     <clipPath id="shape-element-7">
@@ -58,10 +58,12 @@
                     </g>
                 </svg>
             </div>
-        </div>
+        </div> -->
+        <button class="sun-mode" id="sun-mode-toggle">Sun Mode</button>
         <div class="site-header" class="" style="height: 77px">
             <div id="site-header-top-level">
                 <a id="site-logo" href="/">A.Rene</a>
+ 
                 <a id="navtoggle" class="site-header-button-menu" href="#">
                     <svg width="25px" height="17px" viewBox="0 0 25 17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -72,6 +74,19 @@
                     </svg>
                 </a>
             </div>
+                <div id="newsletter-content">
+                <button class='popupButton' id="newsletter-button">Subscribe to the newletter</button>
+                <div id="signup-popup" class="popup" draggable="true">
+                    <span class="close" id="close-button">&times;</span>
+                    <h3>Stay up-to-date!</h3>
+                    <form class="popupForm" id="form">
+                        <input type="text" id="name" placeholder="Sell your soul here: " required>
+                        <input type="email" id="email" placeholder="Mortal Email: " required>
+                        <button type="sumbit">Subcribe</button>
+                    </form>
+                </div>
+            </div>
+
             <div id="site-nav" class="">
                 <nav id="site menu" class="">
                     <a href="/">Home</a>
@@ -83,55 +98,245 @@
                 <i class="hover-effect" style="width: 0; left: 0;"></i>
             </div>
         </div>
-
-        <div id="newsletter-content">
-            <button class='popupButton' id="newsletter-button">Subscribe to the newletter</button>
-            <div id="signup-popup" class="popup" draggable="true">
-                <span class="close" id="close-button">&times;</span>
-                <h3>Stay up-to-date!</h3>
-                <form class="popupForm" id="form">
-                    <input type="text" id="name" placeholder="Sell your soul here: " required>
-                    <input type="email" id="email" placeholder="Mortal Email: " required>
-                    <button type="sumbit">Subcribe</button>
-                </form>
+        
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="./images/001.jpg" alt="Image 1">
+                <img src="./images/20190416_133425_HDR-01.jpeg" alt="Image 2">
+                <img src="./images/DSC_0005.jpg" alt="Image 3">
+                <img src="./images/DSC_0113-2.jpg" alt="Image 4">
+                <img src="./images/DSC_0173-2.jpg" alt="Image 5">
+                <img src="./images/DSC_0232-2.jpg" alt="Image 6">
+            </div>
+            <div class="carousel-nav">
+                <button id="prevBtn">Previous</button>
+                <button id="nextBtn">Next</button>
             </div>
         </div>
-
+        <div class="comment-section">
+            <input type="text" id="commentInput" class="comment-input" placeholder="Enter your comment">
+            <button id="addCommentBtn">Add Comment</button>
+            <ul id="commentList" class="comment-list"></ul>
         </div>
+        <div id="popupComment" class="popup-comment">
+            <p id="popupCommentText"></p>
+            <button id="closePopup">Close</button>
+        </div>
+
         
         <script>
-            // yes, this is in jquery that is just what i found works better for the nav bar. This would be so long otherwise.
-            $("#navtoggle").click(function(event) { //onclick event
-                event.preventDefault();
-                if ($('#site-header').is("menu-open")) {
-                    $('#site-header').removeClass("menu-open");
-                    $("#site-header").css("height", "77px");
-                } else {
-                    $('#site-header').addClass("menu-open");
-                    $("#site-header").css("height", "460px");
-                }
-            }); //I am still learning jquery
-            var nav = [91, 102, 196, 85, 93]; //for the spacing when the modual slides
-            var offset = [52, 144, 291, 428.5, 514];
+            document.addEventListener('DOMContentLoaded', function() {
+                //^^ensure that the JavaScript code runs at the right time, preventing errors and improving performance.
+                const carouselSlide = document.querySelector('.carousel-slide');
+                const carouselImages = document.querySelectorAll('.carousel-slide img');
+                const prevBtn = document.querySelector('#prevBtn');
+                const nextBtn = document.querySelector('#nextBtn');
+                const commentInput = document.getElementById('commentInput');
+                const addCommentBtn = document.getElementById('addCommentBtn');
+                const commentList = document.getElementById('commentList');
+                const popupComment = document.getElementById('popupComment');
+                const popupCommentText = document.getElementById('popupCommentText');
+                const closePopup = document.getElementById('closePopup');
 
-            window.onload = function() {
-                $(".hover-effect").width(nav[$("#site-nav a.active").index()]).css("left", offset[$("#site-nav a.active").index()]); //function for the numbers above
-                setTimeout(function() {
-                    $("body").addClass("ready");
-                }, 100); //supposed to be for timeing out the slider but idk if it works
-                $("#site-nav").hover(
-                    function() {
-                    $("#site-nav a").hover(
-                        function() {
-                        $(".hover-effect").width(nav[$("#site-nav a").index(this)]).css("left", offset[$("#site-nav a").index(this)]);
-                        $("#site-nav").addClass("normal");
-                        });
-                    },
-                    function(e) {
-                        $(".hover-effect").width(nav[$("#site-nav a.active").index()]).css("left", offset[$("#site-nav a.active").index()]);
-                        $("#site-nav").removeClass("normal");
+                let counter = 0;
+                const size = carouselImages[0].clientWidth;
+                //^^Selects all the necessary DOM elements for the carousel and comment section.
+                // Initializes a counter variable to 0, representing the starting image index.
+                // Calculates and stores the width of the first carousel image in the size variable.
+
+                function slideCarousel() {
+                    carouselSlide.style.transform = `translateX(${-size * counter}px)`; 
+                    //translates is left or right by image size
+                }
+                // ^^Calculates the horizontal offset based on the size of each image and the current counter value.
+                // Applies a translateX transform to the carouselSlide element, moving the images horizontally so
+                //  that the correct image is visible.
+
+                nextBtn.addEventListener('click', () => {
+                    if (counter < carouselImages.length - 1) {
+                        counter++; //adds to counter to keep track of images and which one you may be on
+                        slideCarousel();
+                    } else {
+                        counter = 0;
+                        slideCarousel();
+                    }
+                });
+                //^^ When the "Next" button is clicked, it checks if there are more images to the right. 
+                // If there are, it increments the counter and calls slideCarousel() to move to the next image. 
+                // If there are no more images to the right (i.e., the last image is displayed), it resets the 
+                // counter to 0 and calls slideCarousel() to loop back to the first image.
+
+                prevBtn.addEventListener('click', () => {
+                    if (counter > 0) {
+                        counter--;
+                        slideCarousel();
+                    } else {
+                        counter = carouselImages.length - 1;
+                        slideCarousel();
+                    }
+                });
+                //^^ When the "Previous" button is clicked, it checks if there are more images to the left. 
+                // If there are, it decrements the counter and calls slideCarousel() to move to the previous image.
+                //  If there are no more images to the left (i.e., the first image is displayed), it resets the 
+                // counter to the index of the last image and calls slideCarousel() to loop back to the last image.
+
+                addCommentBtn.addEventListener('click', () => {
+                    const commentText = commentInput.value.trim();
+                    if (commentText) {
+                        const li = document.createElement('li');
+                        li.textContent = commentText;
+                        commentList.appendChild(li);
+                        commentInput.value = '';
+
+                        // Show popup
+                        popupCommentText.textContent = commentText;
+                        popupComment.style.display = 'block';
+                    }
+                });
+                //^^ It retrieves the comment text from the input field and removes any extra whitespace.
+                //If the comment text is not empty, it creates a new list item and adds it to the comment list.
+                //It clears the comment input field.
+                //It displays the comment text in a popup window.
+
+                closePopup.addEventListener('click', () => {
+                    popupComment.style.display = 'none';
+                });
+                //^^ When the "Close Popup" button is clicked, it hides the popupComment element.
+            });
+        </script>
+        <script>
+            const popup = document.getElementById('signup-popup');
+            const popupButton = document.getElementById('newsletter-button');
+            const closeButton = document.getElementById('close-button');
+            popupButton.onclick = function() {
+                popup.style.display = 'flex';
+            }
+            //^^When the popupButton is clicked, it makes the popup element visible and sets its display to flex
+
+            closeButton.onclick = function() {
+                popup.style.display = 'none';
+            }
+            //^^When the closeButton is clicked, it hides the popup element
+
+            window.onclick = function(event) {
+                if (event.target == popup) {
+                    popup.style.display = 'none';
+                }
+            }
+            // ^^It listens for click events on the entire window.
+            // When a click occurs, it checks if the clicked element is the popup element.
+            // If the clicked element is not the popup element (meaning the user clicked outside the popup),  
+            // it hides the popup element.
+
+            document.getElementByClassName('popupForm').onsubmit = function(event) {
+            const name = doacument.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            if (name && email) {
+                alert(`Thank you for the sacrifice, ${name}!`);
+                popup.style.display = 'none'; //closes popup after submitting
+            } else {
+                alert('Your soul is mine anyways, so, please fill both out.');
+            }
+            }
+            //^^ It retrieves the values from the name and email input fields.
+            // If both fields are filled in, it displays a success message and closes the popup.
+            // If either field is empty, it displays an error message.
+
+        </script>
+        <script>
+
+            const sunModeToggle = document.getElementById('sun-mode-toggle');
+            if (sunModeToggle) {
+                console.log("Sun mode toggle button found"); // Check if button is found.
+                sunModeToggle.addEventListener('click', () => {
+                    console.log("Sun mode toggle clicked"); // Check if click event is firing.
+                    document.body.classList.toggle('sun-mode');
+                    console.log("Body classes:", document.body.classList); // Check classes on body.
+                });
+            } else {
+                console.log("Sun mode toggle button NOT found"); //for debugging
+            }
+            //^^ Selects the sun mode toggle button. If the button is found, it adds a click event listener.
+            // When the button is clicked, it toggles the sun-mode class on the <body> element, 
+            // which changes the page's appearance. It includes console logs for debugging purposes.
+            // If the button is not found, an error message is logged to the console.
+
+            document.addEventListener('DOMContentLoaded', function() { 
+                //^^ensure that the JavaScript code runs at the right time, preventing errors and improving performance.
+                const navtoggle = document.getElementById('navtoggle');
+                const siteHeader = document.querySelector('.site-header');
+                const siteNav = document.getElementById('site-nav');
+                const siteNavLinks = siteNav.querySelectorAll('a');
+                const hoverEffect = document.querySelector('.hover-effect');
+
+                const nav = [91, 102, 196, 85, 93];
+                const offset = [52, 144, 291, 428.5, 514];
+
+                if (navtoggle && siteHeader && siteNav && hoverEffect) {
+                    navtoggle.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        siteHeader.classList.toggle('menu-open');
+                        siteHeader.style.height = siteHeader.classList.contains('menu-open') ? '460px' : '77px';
                     });
-            };
+                    //^^ controls the opening and closing of a menu (likely a mobile menu) within a site header. 
+                    // When the navtoggle element is clicked: The default click behavior is prevented. 
+                    // The menu-open class is toggled on the siteHeader element, which likely triggers CSS rules to show 
+                    // or hide the menu. The siteHeader's height is dynamically adjusted based on whether the menu is open 
+                    // or closed.
+
+                    function updateHoverEffect(element) {
+                        const index = Array.from(siteNavLinks).indexOf(element);
+                        if (index !== -1) {
+                            hoverEffect.style.width = nav[index] + 'px';
+                            hoverEffect.style.left = offset[index] + 'px';
+                        }
+                    } 
+                    // ^^ the above function dynamically adjusts the width and position of a hover effect element
+                    //  based on the currently hovered navigation link. This creates a visual effect
+                    //  where the hover indicator smoothly moves and resizes to match the hovered link.
+
+                    const activeLink = siteNav.querySelector('a.active');
+                    if (activeLink) {
+                        updateHoverEffect(activeLink);
+                    }
+                    //^^ aims to ensure that when the page loads, the hover effect is correctly positioned over 
+                    // the currently active link in the navigation bar.
+
+
+                    setTimeout(function() {
+                        document.body.classList.add('ready');
+                    }, 100);
+                    //^^ <body> element will initially have an opacity of 0 (invisible). 
+                    // After 100 milliseconds, the ready class will be added, and the opacity will transition 
+                    // to 1 (fully visible)
+
+                    siteNav.addEventListener('mouseenter', function() {
+                        siteNavLinks.forEach(function(link) {
+                            link.addEventListener('mouseenter', function() {
+                                updateHoverEffect(this); //this is html anchor element Within an event listener, 
+                                                        // this refers to the element that triggered the event 
+                                                        // (in this case, the hovered navigation link or mouse enter, 
+                                                        // which is an anchor element
+                                siteNav.classList.add('normal');
+                            });
+                        });
+                    });
+                    //^^ when youhover the nav bar, it prepares each link for a hover effect
+                    //when you hover a link, it visually highlights that link and applies a gerneral "hoverd"
+                    //style to the nav bar
+
+                    siteNav.addEventListener('mouseleave', function() {
+                        if (activeLink) {
+                            updateHoverEffect(activeLink);
+                        }
+                        siteNav.classList.remove('normal');
+                    });
+                    //^^ When the mouse leaves the navigation bar (siteNav), it checks if there is an active link. 
+                    // If an active link exists, it moves the hover effect to that link. It removes the normal class 
+                    // from the navigation bar, reverting any general hover styles.
+                };
+            })
         </script>
     </body>
 </html>

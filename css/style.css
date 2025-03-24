@@ -1,12 +1,123 @@
 html{
     box-sizing: border-box;
+    height: 1200px;
     
 }
 @import "/css/nav.css";
 
-*, *:before, *:after {
-    box-sizing: inherit;
+.carousel-container {
+    width: 80%; /* Responsive width */
+    max-width: 1200px; /* Maximum width */
+    height: 800px;
+    overflow: hidden;
+    position: relative;
+    margin: 20px auto; /* Center and add margin */
+    display: flex
+
 }
+.carousel-slide-container { /* Container for slide and nav */
+    width: 60%; /* Adjust as needed */
+    height: 400px; /* Fixed height for carousel */
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%; /* Ensure slide fills container */
+    height: 100%; /* Ensure slide fills container */
+}
+
+.carousel-slide img {
+    width: 100%; /* Images fill container */
+    height: 100%; /* Images fill container */
+    object-fit: cover; /* Maintain aspect ratio and cover container */
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.carousel-nav button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Optional: Adjust styles for smaller screens (e.g., mobile) */
+@media (max-width: 600px) {
+    .carousel-nav button {
+        padding: 8px 15px; /* Smaller padding on small screens */
+    }
+}
+
+
+
+
+.comment-section {
+    width: 40%; /* Adjust as needed */
+    padding: 20px;
+    border-left: 1px solid #ccc;
+
+    button{
+        font-size:20px;
+        font-family: "Silkscreen", sans-serif;
+        background-color: #432467;
+        border-radius: 28px;
+    } button:hover{
+        background-color: #d44720;
+    } input {
+        font-family: "Saira", sans-serif;
+        font-size: 16px;
+        border-radius: 28px;
+        background-color: #e5d2bd;
+    }
+}
+
+.comment-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-list {
+    list-style: none;
+    padding: 0;
+}
+.comment-list li {
+    border-bottom: 1px solid #d44720; /*adds a border between each comment*/
+    padding: 10px 0;
+}
+
+.popup-comment {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #6dc896;
+    color: black;
+    border-radius: 28px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none; /* Initially hidden */
+    button{
+        background-color:rgba(0, 0, 0, 0.5);
+        color:black
+    }
+}
+
+
+
 
 #newsletter-content {
     display: flex;
@@ -18,7 +129,8 @@ html{
     margin: 0;
     align-items: center;
     justify-content: center;
-    margin: 450px 0 0;
+    margin:0;
+    z-index: 100;
     .popupButton {
         cursor: pointer;
         font-size: 16px;
@@ -27,25 +139,24 @@ html{
         background-color: #d44720;
         color: #e5d2bd;
         padding: 10px;
-        position: absolute;
-        top: 200px;
-        left: 200px;
+        position: sticky;
+        top: 350px;
+        left: 80px;
         text-align: center;
-        margin: 100px 0 0;
+        margin: 0;
     } .popupButton:hover {
         background-color: #432467;
     } .popup {
         display: none;
-        position: fixed;
+        position: fixed; // keeps it fixed in the screen
         z-index: 100;
         background-color: #432467;
         justify-content: center;
         align-content: center;
         padding: 20px;
         border-radius: 28px;
-        /* margin-left: 800px; */
         margin-bottom: 500px;
-        top: 100px;
+        top: 200px;
         left: 200px;
     } .popupForm {
         background-color: #432467;
@@ -53,8 +164,6 @@ html{
         padding: 20px;
         border-radius: 10px;
         text-align: center;
-        /* margin-left: 450 px; */
-       
     } .popup input[type="text"],
     .popup input[type="email"] {
         width: 100%;
@@ -70,7 +179,7 @@ html{
         color: #e5d2bd;
         font-family: "Silkscreen", sans-serif;
     } .popup button:hover {
-            background-color: #78614d;
+        background-color: #78614d;
     } .close {
         color: #aaa;
         font-size: 28px;
@@ -84,4 +193,31 @@ html{
         text-decoration: none;
         cursor: pointer;
     }
+}
+
+@media (max-width: 767px) {
+    
+    #newsletter-content {
+        left: 0; /* Align to the left of the screen */
+        width: 100%; /* Take full width of the screen */
+        margin: 0; /* Reset margins */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        flex-direction: column; /* Stack button and popup vertically */
+      .popupButton {
+            position: static; /* Remove fixed positioning */
+            margin: 20px 0; /* Add some spacing */
+            width: 80%; /* Adjust width for smaller screens */
+            left: auto; /* reset left property */
+            top: auto; /* reset top property */
+        } .popup {
+            position: static; /* Remove fixed positioning */
+            width: 80%; /* Adjust width for smaller screens */
+            margin: 20px 0; /* Add some spacing */
+            left: auto; /* reset left property */
+            top: auto; /* reset top property */
+        } .popupForm {
+            width: 100%; /* Take full width of parent container */
+        }
+    } 
 }

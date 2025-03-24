@@ -1,226 +1,303 @@
 html{
     box-sizing: border-box;
+    height:auto;
 }
+
+
 
 body {
     font-family: "Saira", sans-serif;
     background-color: #282232;
-#site-header{
-    left:0;
-    box-sizing: inherit;
-}
-#site-nav {
-    font-weight: 600;
-    font-size: 18px;
-    nav{
-        z-index: 10;
-        position: relative;
-    }
-    a {
-        transition: width 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
-    } a:hover, a.active {
-        color: #e5d2bd;
-    } a {
-        color: #e5d2bd;
-        text-decoration: none;
-        display: block;
-        padding: 8px 20px;
-    }
-}
 
-#site-logo {
-    position: absolute;
-    background-size: 190px 104px;
-    width: 190px;
-    text-indent: 30px;
-    text-decoration: none;
-    font-size: 40px;
-    font-family: "UnifrakturMaguntia", cursive;
-    color: #432467;
-    overflow: hidden;
-    z-index: 99;
-    margin: 20px 0 0;
-
-}
- .site-header-button-menu{
-    display: none;
- }
-/* .hover-effect{
-    position: relative;
-    background: #e5d2bd;
-    
-    color:#082b27
-} */
-
-@media (min-width: 768px) {
     #site-header{
-        position: absolute;
-        z-index: 100;
-        width: 100%;
-        max-width: 1200px;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0;
+        box-sizing: inherit;
     }
-    #site-logo{
-        height: 54px;
-        top: 24px;
-        left: 37px;
-    }
+   
+
     #site-nav {
-        background: #432467;
-        border-radius: 28px;
-        padding: 6px;
-        float: left;
-        position: absolute;
-        z-index: 10;
-        top: 24px;
-        right: 24px;
-    }
-    .hover-effect {
-        background-color: red;
-        display: block;
-        position: absolute;
-        top: 6px;
-        left: 6px;
-        border-radius: 28px;
-        bottom: 6px;
-        width: 0;
-        pointer-events: none;
-        transform: translateX(-50%);
-        mix-blend-mode: darker-color;
-        will-change: width,left;
-        .ready &{
-            transition: width 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000),left 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        font-weight: 600;
+        font-size: 18px;
+        nav{
+            z-index: 10;
+            position: relative;
         }
-    }@supports (mix-blend-mode: darker-color) {
-        .hover-effect{
-            z-index: 12;
-        } nav{
-            z-index: 1;
-        } #site-nav a:hover, #site-nav a.active{
+        a {
+            transition: width 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+        } a:hover, a.active {
             color: #e5d2bd;
-            
-            /*
+        } a {
+            color: #e5d2bd;
+            text-decoration: none;
             display: block;
+            padding: 8px 20px;
+        }
+    }
+
+    #site-logo {
+        position: absolute;
+        background-size: 190px 104px;
+        width: 190px;
+        text-indent: 30px;
+        text-decoration: none;
+        font-size: 40px;
+        font-family: "UnifrakturMaguntia", cursive;
+        color: #432467;
+        overflow: hidden;
+        z-index: 99;
+        margin: 20px 0 0;
+
+    }
+    .site-header-button-menu{
+        display: none;
+    }
+    /* .hover-effect{
+        position: relative;
+        background: #e5d2bd;
+        
+        color:#082b27
+    } */
+
+    @media (min-width: 768px) {
+        #site-header{
+            position: absolute;
+            z-index: 100;
+            width: 100%;
+            max-width: 1200px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #site-logo{
+            height: 54px;
+            top: 24px;
+            left: 37px;
+        }
+        #site-nav {
+            background: #432467;
             border-radius: 28px;
-            background-color: #e5d2bd;
-            transform: translateX(-10%);
-            mix-blend-mode: difference;
-            will-change: width,left;
+            padding: 6px;
+            float: left;
+            position: absolute;
+            z-index: 10;
+            top: 24px;
+            right: 24px;
+        }
+        .hover-effect {
+            background-color: #b92420;
+            display: block;
             position: absolute;
             top: 6px;
             left: 6px;
+            border-radius: 28px;
             bottom: 6px;
             width: 0;
-            pointer-events: none; */
-        }
-    } #site-nav a{
-        float: left;
-    } .site-header-top-level{
-        .site-header-button-menu{
-            display:none;
+            pointer-events: none;
+            transform: translateX(-50%);
+            mix-blend-mode: darker-color;
+            will-change: width,left;
+            .ready &{
+                transition: width 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000),left 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+            } /* c-b os for the different browsers and this transition is for when the hover 
+            transitions into the screen*/
+        }@supports (mix-blend-mode: darker-color) {
+            .hover-effect{
+                z-index: 12;
+            } nav{
+                z-index: 1;
+            } #site-nav a:hover, #site-nav a.active{
+                color: #e5d2bd;
+                
+                /*
+                display: block;
+                border-radius: 28px;
+                background-color: #e5d2bd;
+                transform: translateX(-10%);
+                mix-blend-mode: difference;
+                will-change: width,left;
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                bottom: 6px;
+                width: 0;
+                pointer-events: none; */
+            }
+        } #site-nav a{
+            float: left;
+        } .site-header-top-level{
+            .site-header-button-menu{
+                display:none;
+            }
         }
     }
-}
 
-@media (max-width: 767px) {
-    #site-header{
-        position: fixed;
-        background-color: #432467;
-        top: 8px;
-        z-index: 1002;
-        top: 8px;
-        border-radius: 28px;
-        width: 100%;
-        width: calc(100% - 12px);
-        margin-left: 6px;
-        height: 77px;
-        overflow: hidden;
-        will-change: height;
-        transition: height .75s ease;
-    }
-    .site-header-top-level{
-        position: relative;
-        z-index: 10;
-        background-color: #432467;
-        .site-logo{
-            text-align: center
-        }
-    }
-    #sit-nav {
-        padding: 26px;
-        position: relative;
-        opacity: 0;
-        transition: opacity .75s ease;
-        will-change: opacity;
-        .menu-open &{
-            opacity: 1;
-        }&:before{
-            content: " ";
-            display: block;
-            position: absolute;
-            top: 0px;
-            left: 20px;
-            right: 20px;
-            background: #432467;
-            height: 3px;
-            border-radius: 6px;
-        } #nav-menu a{
-            display: block;
+    @media (max-width: 767px) {
+        #site-header{
+            position: fixed;
+            background-color: #432467;
+            top: 8px;
+            z-index: 1002;
+            top: 8px;
+            border-radius: 28px;
             width: 100%;
-            text-align: center;
-            padding: 16px;
-            & .active{
-                margin: 10px 0;
+            width: calc(100% - 12px);
+            margin-left: 6px;
+            height: 77px;
+            overflow: hidden;
+            will-change: height;
+            transition: height .75s ease;
+        }
+        .site-header-top-level{
+            position: relative;
+            z-index: 10;
+            background-color: #432467;
+            .site-logo{
+                text-align: center
+            }
+        }
+        #sit-nav {
+            padding: 26px;
+            position: relative;
+            opacity: 0;
+            transition: opacity .75s ease;
+            will-change: opacity;
+            .menu-open &{
+                opacity: 1;
+            }&:before{
+                content: " ";
+                display: block;
+                position: absolute;
+                top: 0px;
+                left: 20px;
+                right: 20px;
                 background: #432467;
-                color: #432467;
-                border-radius: 30px;
-            } &:last-of-type.active {
-                margin-bottom: 0;
-            } &:first-of-type.active {
-                margin-top: 0;
+                height: 3px;
+                border-radius: 6px;
+            } #nav-menu a{
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 16px;
+                & .active{
+                    margin: 10px 0;
+                    background: #432467;
+                    color: #432467;
+                    border-radius: 30px;
+                } &:last-of-type.active {
+                    margin-bottom: 0;
+                } &:first-of-type.active {
+                    margin-top: 0;
+                }
+
             }
 
         }
-
-    }
-    .site-header-top-level {
-        width: 100%;
-        width: calc(100% - 40px);
-        margin-left: 20px;
-        position: relative;
-        padding: 14px 0;
-        display: flex;
-        justify-content: space-between;
-    }
-    .site-header-button-menu{
-        display: block;
-        width: 49px;
-        height: 49px;
-        background-color: #432467;
-        color: #6dc896;
-        cursor: pointer;
-        z-index: 10;
-        #site-menu{
-            display: hidden;
+        .site-header-top-level {
+            width: 100%;
+            width: calc(100% - 40px);
+            margin-left: 20px;
+            position: relative;
+            padding: 14px 0;
+            display: flex;
+            justify-content: space-between;
         }
-        svg{
-            margin: 16px 12.5px;
-        }
+        .site-header-button-menu{
+            display: block;
+            width: 49px;
+            height: 49px;
+            background-color: #432467;
+            color: #6dc896;
+            cursor: pointer;
+            z-index: 10;
+            left: 20px;
+            #site-menu{
+                display: hidden;
+            }
+            svg{
+                margin: 16px 12.5px;
+            }
 
-    }
-    #site-logo{
-        color: #432467;
-        left: 50%;
-        transform: translateX(-50%);
-        top: 0;
-        height: 100%;
-        z-index: 10;
-    }
+        }
+        #site-logo{
+            color: #432467;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            height: 100%;
+            z-index: 10;
+        }
 
 }}
 
 
+/* Responsive Hamburger Menu to fix the above that did not work
+but i didnt want to mess with the above in fear of loosing functionality of the original nav menu*/
+@media (max-width: 767px) {
+    .carousel-container{
+        top: 150px;
+    }
+    #site-nav nav {
+        flex-direction: column;
+        display: none;
+        background-color: #432467;
+        width: 250px;
+        will-change: height;
+        transition: height .75s ease;
+        float: left;
+        :hover, :active {
+            color:#e5d2bd;
+            background-color: red;
+            border-radius: 28px;
+            width: 200px;
+            transform: translateY(-20%);
+        } .ready & {
+            transition: width 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000),left 0.6s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+        }
+
+    }
+
+    .site-header.menu-open #site-nav nav {
+        display: flex;
+        margin: 0;
+    }
+}
+.sun-mode #site-logo{
+    Color: red;
+}
+body.sun-mode {
+    background-color: #e5d2bd;
+    color: #282232;
+    .comment-section input,
+    .comment-section button{
+        background-color: #00a7ff;
+    }
+}
+
+body.sun-mode #site-logo,
+body.sun-mode #navtoggle svg rect {
+    color: #b92420;
+}
+
+body.sun-mode #site-nav a {
+    color: #e5d2bd;
+}
+body.sun-mode #site-nav{
+    background-color: #00a7ff;
+}
+body.sun-mode #sun-mode-toggle {
+    background-color: #282232;
+    color: #e5d2bd;
+}
+
+body.sun-mode button {
+    background-color: #e5d2bd;
+    color: #b92420;
+}
+
+body.sun-mode button:hover,
+body.sun-mode #sun-mode-toggle:hover {
+    background-color: #b92420;
+    color: white;
+}
 /* Fonts:
 .macondo-swash-caps-regular {
   font-family: "Macondo Swash Caps", cursive;
